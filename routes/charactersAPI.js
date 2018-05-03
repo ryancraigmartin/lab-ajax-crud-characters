@@ -14,10 +14,43 @@ router.get("/characters", (req, res, next) =>{
   })
 });
 
-// router.get("/characters/:id", (req, res, next) =>{
-//  Character.findOne({id: req.params.id}, (err, oneCharacter) => {
-//    res.json(oneCharacter) // Generates the cities as a JSON file.
-//  });
-// });
+router.get("/characters/:id", (req, res, next) =>{
+ Character.findById(req.params.id)
+  .then((theCharacter) => {
+   console.log(theCharacter);    
+   res.json(theCharacter) // Generates the cities as a JSON file.
+  })
+  .catch(error => {
+    console.log(error);
+    next(error)
+   })
+}); // END .get/characers/id
+
+router.post('/characters/create', (req, res, next) => {
+ Character.create({
+  name: req.body.theName,
+  occupation: req.body.theOccupation,
+  weapon: req.body.theWeapon,
+  cartoon: req.body.theCartoon
+ })
+ .then((theCharacter) => {
+    res.json(theCharacter);
+ })
+ .catch(error => {
+  console.log(error);
+  next(error)
+ })
+}) // END .post create route
+
+router.post('/characters/update/:id', (req,res,next) => {
+ Character.findByIdAndUpdate(req.params.id, req.body)
+  .then((updatedCharacter) => {
+    res.json(updatedCharacter);
+  })
+  .catch((error) => {
+   console.log(error);
+   next(error)
+  })
+});
 
 module.exports = router;

@@ -14,7 +14,7 @@
       </div>
       <div class="operation">
         <label for="character-id">Search by ID: </label>
-        <input type="text" name="character-id">
+        <input type="text" class="character-id">
         <button id="fetch-one">Fetch one</button>
       </div>
       <div class="operation delete">
@@ -28,50 +28,50 @@
   <section class="container">
     <section class="form-container">
       <h2>New Character</h2>
-      {{!-- <form id="new-character-form" class="character-form"> --}}
+      <form id="new-character-form" class="character-form">
         <div class="field">
           <label for="name">Name: </label>
-          <input type="text" name="name">
+          <input type="text" class="new-name">
         </div>
         <div class="field">
           <label for="occupation">Occupation: </label>
-          <input type="text" name="occupation">
+          <input type="text" class="new-occupation">
         </div>
         <div class="field">
           <label for="weapon">Weapon: </label>
-          <input type="text" name="weapon">
+          <input type="text" class="new-weapon">
         </div>
         <div class="field">
           <label for="cartoon">Is a Cartoon: </label>
-          <input name="cartoon" type="checkbox">
+          <input class="new-cartoon" type="checkbox">
         </div>
         <button class="send-data">Create</button>
-      {{!-- </form> --}}
+      </form>
     </section>
     <section class="form-container">
       <h2>Edit Character</h2>
-      {{!-- <form id="edit-character-form" class="character-form"> --}}
+      <form id="edit-character-form" class="character-form">
         <div class="field">
           <label for="id">ID: </label>
-          <input type="text" name="chr-id">
+          <input type="text" class="edit-chr-id">
         </div>
         <div class="field">
           <label for="name">Name: </label>
-          <input type="text" name="name">
+          <input type="text" class="edit-name">
         </div>
         <div class="field">
           <label for="occupation">Occupation: </label>
-          <input type="text" name="occupation">
+          <input type="text" class="edit-occupation">
         </div>
         <div class="field">
           <label for="weapon">Weapon: </label>
-          <input type="text" name="weapon">
+          <input type="text" class="edit-weapon">
         </div>
         <div class="field">
           <label for="cartoon">Is a Cartoon: </label>
           <input name="cartoon" type="checkbox">
         </div>
         <button class="send-data">Update</button>
-      {{!-- </form> --}}
+      </form>
     </section>
   </section>
