@@ -1,16 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+{{!-- <!DOCTYPE html> --}}
+{{!-- <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./public/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/style.scss">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script> --}}
+{{!-- 
   <title>IH Characters</title>
 </head>
-<body>
+<body> --}}
   <section class="container">
     <h1>Ironhack Characters API</h1>
     <div class="characters-container">
@@ -41,7 +41,7 @@
   <section class="container">
     <section class="form-container">
       <h2>New Character</h2>
-      <form id="new-character-form" class="character-form">
+      {{!-- <form id="new-character-form" class="character-form"> --}}
         <div class="field">
           <label for="name">Name: </label>
           <input type="text" name="name">
@@ -58,12 +58,12 @@
           <label for="cartoon">Is a Cartoon: </label>
           <input name="cartoon" type="checkbox">
         </div>
-        <button id="send-data">Create</button>
-      </form>
+        <button class="send-data">Create</button>
+      {{!-- </form> --}}
     </section>
     <section class="form-container">
       <h2>Edit Character</h2>
-      <form id="edit-character-form" class="character-form">
+      {{!-- <form id="edit-character-form" class="character-form"> --}}
         <div class="field">
           <label for="id">ID: </label>
           <input type="text" name="chr-id">
@@ -84,11 +84,11 @@
           <label for="cartoon">Is a Cartoon: </label>
           <input name="cartoon" type="checkbox">
         </div>
-        <button id="send-data">Update</button>
-      </form>
+        <button class="send-data">Update</button>
+      {{!-- </form> --}}
     </section>
   </section>
-  <script type="text/javascript" src="./public/javascript/APIHandler.js"></script>
-  <script type="text/javascript" src="./public/javascript/index.js"></script>
-</body>
-</html>
+  {{!-- <script type="text/javascript" src="./public/javascript/APIHandler.js"></script> --}}
+  {{!-- <script type="text/javascript" src="/javascripts/script.js"></script> --}}
+{{!-- </body>
+</html> --}}
