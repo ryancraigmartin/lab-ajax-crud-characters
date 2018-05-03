@@ -2,28 +2,25 @@ $(document).ready(function() {
 
   $('#fetch-all').click(function() {
     console.log("Clicked Fetch All");
-  
-  axios.get({
-    method: "GET",
-    url: "http://localhost:3000/characters/"
-    // params: 
-  })
+ 
+  axios.get('/api/characters')
     .then(responseFromAPI => {
-      $('character-info').empty(); 
-      responseFromAPI.data.forEach(function(oneCharacter){
-        console.log(oneCharacter.name);
-        $('.character-info').append(`
-        <h3>Name: ${oneCharacter.name}</h3>
-        <p>Occupation: ${oneCharacter.occupation}</p>
-        <p>Is it a Cartoon: ${oneCharacter.cartoon}</p>
-        <p>Weapon: ${oneCharacter.weapon}</p>
-        `)
-      })
+      $('.characters-container').empty(); // Removes the original box.
+      responseFromAPI.data.forEach((eachCharacter) => { // Only what's between the tags changes.
+        $('.characters-container').append(`
+        <div class="character-info">
+        <div class="name">Name: ${eachCharacter.name}</div>
+        <div class="occupation">Occupation: ${eachCharacter.occupation}</div>
+        <div class="cartoon">Cartoon?: ${eachCharacter.cartoon}</div>
+        <div class="weapon">Weapon: ${eachCharacter.weapon}</div>
+      </div>`)
+        console.log(eachCharacter);
+      }); // END of forEach
+    }) // END of .then
+    .catch(error => {
+      console.log(error);
     })
-    .catch(err => {
-      console.log(err);
-    })
-  });
+  }); // END of fetch-all.
 
   // $('#fetch-one').click(function() {
   //   console.log("Clicked Fetch One");

@@ -8,17 +8,8 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const Character    = require('./models/character')
 const Schema       = mongoose.Schema;
-
-const characterSchema = Schema({
-  id:   Number,
-  name: String,
-  occupation: String,
-  weapon: String,
-  cartoon: Boolean
-});
-
-const Character = mongoose.model("Character", characterSchema);
 
 mongoose.Promise = Promise;
 mongoose
@@ -49,25 +40,18 @@ app.use(require('node-sass-middleware')({
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+// Anytime that I am searching for assetts, assume it's in /public/
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-app.get("/characters", (req, res, next) =>{
-  Character.find((err, character) => {
-    res.json(character) // Generates the cities as a JSON file.
-  });
-});
-
-app.get("/characters/:id", (req, res, next) =>{
-  Character.findOne({id: req.params.id}, (err, oneCharacter) => {
-    res.json(oneCharacter) // Generates the cities as a JSON file.
-  });
-});
-
 const index = require('./routes/index');
 app.use('/', index);
+
+// This will prefix every route in that file with /api
+const apiRoutes = require('./routes/charactersAPI');
+app.use('/api', apiRoutes); 
 
 module.exports = app;
